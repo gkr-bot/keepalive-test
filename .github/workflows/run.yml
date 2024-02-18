@@ -11,6 +11,7 @@ jobs:
     name: Update this repo's README with all the articles
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Test Keepalive
         uses: gautamkrishnar/keepalive-workflow@v1
         with:
