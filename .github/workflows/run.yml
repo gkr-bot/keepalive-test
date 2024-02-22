@@ -3,12 +3,16 @@ on:
   schedule:
     - cron: '0 * * * *'
   workflow_dispatch: # Run workflow manually (without waiting for the cron to be called), through the GitHub Actions Workflow page directly
-permissions:
-  contents: write # To write the generated contents to the readme
 
 jobs:
-  update-readme-with-blog:
-    name: Update this repo's README with all the articles
+  main-job:
+    name: Main Job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run:  echo hi
+  keepalive-job:
+    name: Keepalive Workflow
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,5 +20,5 @@ jobs:
         uses: gautamkrishnar/keepalive-workflow@v1
         with:
           use_api: true
-          gh_token: ${{ secrets.GH_TOKEN }}
+          time_elapsed: 0
 
