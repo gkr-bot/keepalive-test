@@ -17,10 +17,10 @@ jobs:
     needs: main-job
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      actions: write
     steps:
       - uses: actions/checkout@v4
-      - uses: gautamkrishnar/keepalive-workflow@v2
+      - uses: gautamkrishnar/keepalive-workflow@develop
         with:
           time_elapsed: "0"
           
